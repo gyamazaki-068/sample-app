@@ -1,0 +1,32 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak01:
+            client-id: mywebapp01
+            client-secret: 2GAdEKdosBNKVwer4OUbaPuSpjJZMhlS
+            provider: keycloak01
+            scope: openid
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+          keycloak02:
+            client-id: mywebapp02
+            client-secret: QLujBSm6Q6tN3lEdvO7xDZaQXB725cub
+            provider: keycloak02
+            scope: openid
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          keycloak01:
+            authorization-uri: http://localhost:8180/realms/myrealm01/protocol/openid-connect/auth
+            token-uri: http://localhost:8180/realms/myrealm01/protocol/openid-connect/token
+            user-info-uri: http://localhost:8180/realms/myrealm01/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:8180/realms/myrealm01/protocol/openid-connect/certs
+            user-name-attribute: preferred_username
+          keycloak02:
+            authorization-uri: http://localhost:8180/realms/myrealm02/protocol/openid-connect/auth
+            token-uri: http://localhost:8180/realms/myrealm02/protocol/openid-connect/token
+            user-info-uri: http://localhost:8180/realms/myrealm02/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:8180/realms/myrealm02/protocol/openid-connect/certs
+            user-name-attribute: preferred_username
