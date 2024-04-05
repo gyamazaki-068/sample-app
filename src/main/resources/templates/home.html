@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+  </head>
+  <body>
+    <h1>Welcome, <span th:text="${userName}">User</span>!</h1>
+    <p>Access Token: <span th:text="${accessToken}">not available</span></p>
+    <p>Refresh Token: <span th:text="${refreshToken}">not available</span></p>
+    <p>ID Token: <span th:text="${IDToken}">not available</span></p>
+    <p>User Attributes:</p>
+    <ul>
+      <li
+        th:each="entry : ${userAttributes != null ? userAttributes.entrySet() : {}}"
+      >
+        <span th:text="${entry.key}"></span>:
+        <span th:text="${entry.value}"></span>
+      </li>
+    </ul>
+    <p>Client ID: <span th:text="${clientId}">not available</span></p>
+    <p>Provider: <span th:text="${provider}">not available</span></p>
+    <p>Redirect URI: <span th:text="${redirectUri}">not available</span></p>
+    <p>Scope: <span th:text="${scope}">not available</span></p>
+    <p>
+      Government Code: <span th:text="${governmentCode}">not available</span>
+    </p>
+    <p>
+      Authorization URI:
+      <span th:text="${authorizationUri}">not available</span>
+    </p>
+    <p>Token URI: <span th:text="${tokenUri}">not available</span></p>
+    <p>
+      Revocation Endpoint:
+      <span th:text="${revocationEndpoint}">not available</span>
+    </p>
+    <p>
+      Introspection Endpoint:
+      <span th:text="${introspectionEndpoint}">not available</span>
+    </p>
+    <p>Realm: <span th:text="${realm}">not available</span></p>
+  </body>
+</html>
